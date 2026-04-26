@@ -1,11 +1,13 @@
 package com.dayorolands.memecreatorappincmp.meme_editor.presentation
 
+import androidx.compose.ui.unit.IntSize
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
 
 class MemeEditorViewModel : ViewModel() {
 
@@ -27,7 +29,26 @@ class MemeEditorViewModel : ViewModel() {
 
     fun onAction(action: MemeEditorAction) {
         when (action) {
-            else -> TODO("Handle actions")
+            MemeEditorAction.OnAddTextClick -> TODO()
+            MemeEditorAction.OnBackButtonClick -> TODO()
+            MemeEditorAction.OnConfirmLeaveWithoutSaving -> TODO()
+            is MemeEditorAction.OnContainerSizeChange -> updateContainerSize(size = action.size)
+            is MemeEditorAction.OnDeleteMemeTextClick -> TODO()
+            MemeEditorAction.OnDismissLeaveWithoutSaving -> TODO()
+            is MemeEditorAction.OnEditMemeText -> TODO()
+            is MemeEditorAction.OnMemeTextChange -> TODO()
+            is MemeEditorAction.OnMemeTextTransformChange -> TODO()
+            is MemeEditorAction.OnSaveMemeClick -> TODO()
+            is MemeEditorAction.OnSelectMemeText -> TODO()
+            MemeEditorAction.OnTapOutsideSelectedText -> TODO()
+        }
+    }
+
+    private fun updateContainerSize(size: IntSize) {
+        _state.update {
+            it.copy(
+                templateSize = size
+            )
         }
     }
 
