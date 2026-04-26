@@ -9,7 +9,7 @@ data class MemeTemplate(
     val drawable: DrawableResource
 )
 
-val memeTemplate = Res
+val memeTemplates = Res
     .allDrawableResources
     .filterKeys { it.startsWith("meme_template") }
     .map { (key, value) ->
